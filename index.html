@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prompt Fixer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e0f7fa;
+      border-left: 4px solid #00acc1;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Prompt Fixer</h2>
+    <p>Ask anything about using LottieFiles in e-learning:</p>
+    <input type="text" id="userInput" placeholder="Type your question here..." />
+    <button onclick="handleResponse()">Ask</button>
+    <div class="response" id="responseBox" style="display:none;"></div>
+  </div>
+
+  <script>
+    function handleResponse() {
+      const input = document.getElementById("userInput").value.trim();
+      const responseBox = document.getElementById("responseBox");
+
+      if (!input) {
+        responseBox.innerText = "Please enter a question.";
+        responseBox.style.display = "block";
+        return;
+      }
+
+      // You can make this smarter by mapping keywords to responses
+      let response = "";
+
+      if (input.toLowerCase().includes("how do i add")) {
+        response = "To add a LottieFile in your e-learning, upload it to LottieFiles.com and embed the animation using the provided code or use it as a Web Object in your authoring tool.";
+      } else if (input.toLowerCase().includes("optimize")) {
+        response = "To optimize a Lottie animation, use the compression tools in LottieFiles, reduce layers in After Effects, and avoid complex effects.";
+      } else {
+        response = "That's a great question! Make sure your animation is exported using Bodymovin and test its compatibility with your e-learning platform.";
+      }
+
+      responseBox.innerText = response;
+      responseBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>
